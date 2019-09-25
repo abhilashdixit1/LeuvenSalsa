@@ -1,0 +1,17 @@
+// orange #C9391E
+// green #A9B338
+$primary: #C9391E;
+$secondary: #A9B338;
+
+$body-bg: #fff;
+//s$body-color: #fff;
+
+$enable-rounded: false !default;
+
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$h1-font-size:                $font-size-base * 2 !default;
+$h2-font-size:                $font-size-base * 1.8 !default;
+$h3-font-size:                $font-size-base * 1.6 !default;
+$h4-font-size:                $font-size-base * 1.4 !default;
+$h5-font-size:                $font-size-base * 1.2 !default;
+$h6-font-size:                $font-size-base !default;

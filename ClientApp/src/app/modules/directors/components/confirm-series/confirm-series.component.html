@@ -1,0 +1,97 @@
+<div class="container">
+  <form [formGroup]="seriesForm" #myForm="ngForm">
+    <h2>Classes</h2>
+
+    <div formArrayName="lessons">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Start</th>
+            <th scope="col">End</th>
+            <th scope="col">Room</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let item of lessons.controls; let pointIndex = index"
+            [formGroupName]="pointIndex"
+          >
+            <th scope="row">
+              {{ pointIndex + 1 }}
+            </th>
+
+            <td>
+              <div class="input-group">
+                <input
+                  id="startdateInput"
+                  class="form-control"
+                  placeholder="yyyy-mm-dd"
+                  name="dp"
+                  formControlName="date"
+                  required
+                  ngbDatepicker
+                  #d="ngbDatepicker"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary btn-icon"
+                    (click)="d.toggle()"
+                    type="button"
+                  >
+                    <i class="material-icons">calendar_today</i>
+                  </button>
+                </div>
+              </div>
+            </td>
+
+            <td>
+              <ngb-timepicker formControlName="start"></ngb-timepicker>
+            </td>
+
+            <td>
+              <ngb-timepicker formControlName="end"></ngb-timepicker>
+            </td>
+
+            <td>
+              <select formControlName="room" class="form-control" required>
+                <option
+                  *ngFor="let location of roomOptions"
+                  [value]="location.id"
+                >
+                  {{ location.name }}
+                </option>
+              </select>
+            </td>
+
+            <td>
+              <button
+                class="btn btn-danger"
+                type="button"
+                (click)="deleteClass(pointIndex)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+
+  <button class="btn btn-secondary" type="button" (click)="addNewClass()">
+    Add Class
+  </button>
+  <br />
+  <br />
+  <button
+    class="btn btn-primary"
+    type="button"
+    (click)="confirm()"
+    [disabled]="!myForm.form.valid"
+  >
+    Confirm
+  </button>
+</div>

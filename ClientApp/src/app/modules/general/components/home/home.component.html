@@ -1,0 +1,64 @@
+<ngb-carousel #carousel interval="10000" pauseOnHover="true">
+  <ng-template ngbSlide *ngFor="let vid of videos; index as i">
+    <div class="carousel-caption">
+      <h1>{{ vid.title }}</h1>
+    </div>
+    <video class="video-fluid" autoplay loop [muted]="'muted'">
+      <source src="{{ vid.src }}" type="video/mp4" />
+    </video>
+  </ng-template>
+</ngb-carousel>
+
+<div>
+  <div class="container">
+    <br />
+    <h2>LeuvenSalsa! Latin Dance School</h2>
+    <p>
+      LeuvenSalsa! is a Leuven based Latin dance school started by Carl Hourcau
+      in 2005.
+    </p>
+    <h3>We propose</h3>
+    <ul>
+      <li>dance classes in several styles</li>
+      <li>parties</li>
+      <li>the Leuven Salsa Festival (twice a year)</li>
+      <li>the Salsa in Toscana holidays</li>
+      <li>business events</li>
+      <li>initiations and shows at private events</li>
+      <li>private classes</li>
+      <li>and other events in which fun and quality come together!</li>
+    </ul>
+
+    <h3>Classes</h3>
+    <p>
+      LeuvenSalsa! proposes dance classes for salsa, tango, ladies' technique &
+      styling, bachata, body movement and samba de gafieira. It is very
+      important to us that all of our classes have these two characterics:
+      'quality' and 'fun'! Our teachers propose classes with a clear structure
+      and based on a global didactic plan. The LeuvenSalsa! teachers are
+      caracterized by their didactic skills but also by their commitment and
+      friendliness, creating a great dancing and learning environment. See the
+      page for more details on our team. Our classes take place in different
+      great locations in Leuven, all of which are well equiped dance halls.
+    </p>
+
+    <h3>Learning to dance</h3>
+    <p>
+      In order to learn how to dance you need to do more though than just to
+      take classes. Practising is very important and that's why we organize free
+      parties (every Monday and Wednesday in Café Manger).
+    </p>
+
+    <h3>Challenging and variety</h3>
+
+    <p>
+      In order to make progress it is also nice to receive new input from other
+      instructors. We will therefore very regularly invite guest instructors to
+      come and challenge us all by showing other styles, other ways of teaching
+      ... The Latin dance world is very varied and we're happy to show this
+      variety for instance in the 'Leuven Salsa Festival' that we organize twice
+      a year or in the 'Salsa in Toscana' stages that we propose in summer every
+      year.
+    </p>
+  </div>
+</div>

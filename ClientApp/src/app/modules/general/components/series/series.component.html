@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <h1 class="mt-4">Group Classes</h1>
+
+  <p>
+    Here you can enrol in our weekly group classes. However, if weekly classes
+    don't fit you, you are able to enrol in individual classes, by
+    <a [routerLink]="['/lessons']">clicking here</a>
+  </p>
+
+  <div class="row mt-4">
+    <div class="input-group col-sm" *ngIf="styles?.length > 2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="styleCbx">Style</label>
+      </div>
+      <select class="custom-select" id="styleCbx" [(ngModel)]="selectedStyle">
+        <option *ngFor="let style of styles" [value]="style">{{
+          style
+        }}</option>
+      </select>
+    </div>
+
+    <div class="input-group col-sm" *ngIf="days?.length > 2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="dayCbx">Day</label>
+      </div>
+      <select class="custom-select" id="dayCbx" [(ngModel)]="selectedDay">
+        <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+      </select>
+    </div>
+
+    <div class="input-group col-sm" *ngIf="levels?.length > 2">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="levelCbx">Level</label>
+      </div>
+      <select class="custom-select" id="levelCbx" [(ngModel)]="selectedLevel">
+        <option *ngFor="let level of levels" [value]="level">{{
+          level | level
+        }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="table-responsive mt-3">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Style</th>
+          <th scope="col">Level</th>
+          <th scope="col">Timeslot</th>
+          <th scope="col">Start</th>
+          <th scope="col">Last class</th>
+          <th scope="col">Location</th>
+          <th scope="col">Teachers</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of filteredClasses">
+          <th scope="row">{{ c.style }}</th>
+          <td>{{ c.level | level }}</td>
+          <td>{{ c.timeslot }}</td>
+          <td>{{ c.startDate | date: "dd/MM/yyyy" }}</td>
+          <td>{{ c.endDate | date: "dd/MM/yyyy" }}</td>
+          <td>{{ c.location }}</td>
+          <td>{{ c.teachers }}</td>
+          <td>
+            <button type="button" class="btn btn-primary">Enrol</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
